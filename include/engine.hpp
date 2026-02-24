@@ -1,25 +1,28 @@
+#pragma once
 #include <queue>
 #include <vector>
+#include <functional>
+#include <iostream>
 
-// 1. The Event: A simple data structure
 struct Event {
     double timestamp;
-    int type; // Just a label for now
+    // Using a std::function allows us to pass any logic (lambda) into the event
+    std::function<void()> callback;
 
-    // This makes the priority_queue a "Min-Heap" (lowest time first)
+    // Min-heap logic: the priority_queue puts the "largest" at the top,
+    // so we invert the comparison to get the smallest timestamp first.
     bool operator>(const Event& other) const {
         return timestamp > other.timestamp;
     }
 };
 
-// 2. The Engine: The thing that runs the loop
 class Engine {
 public:
-    void add_event(double ts, int type) {
-        pq.push({ts, type});
+    void add_event(double ts, std::function<void()> cb) {
+        pq.push({ts, std::move(cb)});
     }
 
-    void run(); // You will implement this in engine.cpp
+    void run();
 
 private:
     std::priority_queue<Event, std::vector<Event>, std::greater<Event>> pq;
