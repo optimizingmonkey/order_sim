@@ -1,0 +1,3 @@
+/Users/franxenoz/Desktop/codes/quant_sim/build/CMakeFiles/sim_engine.dir
+/Users/franxenoz/Desktop/codes/quant_sim/build/CMakeFiles/edit_cache.dir
+/Users/franxenoz/Desktop/codes/quant_sim/build/CMakeFiles/rebuild_cache.dir
