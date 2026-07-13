@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -march=native -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/generate_data.dir/src/generate_data.cpp.o -o generate_data
